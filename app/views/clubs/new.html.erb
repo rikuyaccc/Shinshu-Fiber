@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <%= simple_form_for @club, html: { autocomplete: 'off' } do |f| %>
+        <%= f.input :name, label: "サークル名" %>
+        <%= f.input :profile, label: "紹介文", placeholder: 'どんなサークルですか？' %>
+      <div class="text-right">
+        <%= f.button :submit, "登録する", class: 'btn btn-success mt-2' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

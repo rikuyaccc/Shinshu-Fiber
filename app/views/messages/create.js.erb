@@ -1,0 +1,12 @@
+var elem = document.getElementById('message_content');
+  
+elem.value = '';
+elem.focus();
+
+function scrollBottom(){
+    var target = $('#messages').last();
+    var position = target.offset().top + $('#messages').scrollTop();
+    $('#messages').animate({
+      scrollTop: position
+    }, 300, 'swing');
+  }

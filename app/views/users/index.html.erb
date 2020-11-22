@@ -1,0 +1,13 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-4 offset-4 border shadow-sm py-3">
+        <% if user.email == "guest@example.com" %>
+          <%= link_to "ゲストユーザー", user_path(user.id), clas: 'd-block' %>
+        <% else %>
+          <%= link_to user.username, user_path(user.id), class: 'd-block' %>
+        <% end %>
+      </div>
+      <% end %>
+  </div>
+</div>

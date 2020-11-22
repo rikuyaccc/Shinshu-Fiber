@@ -1,0 +1,15 @@
+<div class="col-9 offset-3 mb-2">
+  <i class="fas fa-chevron-down"></i><span>メッセージ</span>
+</div>
+<div class="col-2 offset-3">
+  <% another_entries.each do |entry| %>
+    <%= link_to room_path(entry.room.id), class: 'room-link' do %>
+      <div class="card room-card">
+        <div class="card-body">
+          <p class="room-user"><%= entry.user.username %></p>
+          <p class="room-message"><%= entry.room.messages.order(created_at: :desc).take.try(:content) %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

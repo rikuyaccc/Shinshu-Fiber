@@ -1,0 +1,12 @@
+<%= form_with model: message do |f| %>
+  
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_id, value: room.id %>
+
+  <div class="input-group">
+    <%= f.text_field :content,　placeholder: 'Type your message here', autocomplete: 'off', class: 'form-control' %>
+    <div class="input-group-append">
+      <%= f.submit '送信', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

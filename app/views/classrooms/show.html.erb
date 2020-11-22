@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 offset-3 pt-5">
+      <h2><%= @classroom.name %></h2>
+
+      <p><%= link_to "授業を評価", rate_classroom_path(@classroom.id), class: "btn btn-info float-right" %></p>
+      <p>学期: <%= @classroom.term %></p>
+      <p>時限: <%= @classroom.week %></p>
+      <p>講師: <%= @classroom.teacher %></p>
+
+      <% if @reviews.present? %>
+        <p class="mt-5">この授業のコメント</p>
+      <% else %>
+        <p class="mt-5">この授業のコメントはまだありません</p>
+      <% end %>
+    </div>
+
+    <% @reviews.each do |review| %>
+      <div class="col-1 offset-3">
+        <%= link_to user_path(review.user.id) do %>
+          <% if review.user.image.blank? %>
+            <%= image_tag 'default.jpg', class: "little-icon-image mt-3" %>
+          <% else %>
+            <img src=<%= review.user.image %> class="little-icon-image mt-3" >
+          <% end %>
+        <% end %>
+        <p><%= link_to review.user.username, user_path(review.user.id) %></p>
+      </div>
+      <div class="col-5 balloon mb-3">
+        <!-- 星評価 -->
+        <span id="star-rate-<%= review.id %>"></span>
+        <script>
+        $('#star-rate-<%= review.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          number: 5,
+          readOnly: true,
+          score: <%= review.rate %>,
+        });
+        </script>  
+        <!--/星評価-->
+
+        <span class="review-title ml-3"><%= review.title %></span>
+        <p class="mt-3"><%= review.comment %></p>
+        <p class="review-create-time mt-2 float-right"><%= review.created_at %></p>
+      </div>
+
+
+    <% end %>
+  </div>
+</div>

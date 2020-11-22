@@ -1,0 +1,33 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* 吹き出し本体 */
+.balloon{
+  position: relative;
+  padding: 20px;
+  background-color: #f1f1f2;
+  display: inline-block;     /* 横幅を自動で変更 */
+}
+
+/* beforeで三角を表現 */
+.balloon::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 20px;
+  border-right: 15px solid #f1f1f2;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.review-create-time {
+  font-size: 13px;
+}
+
+.review-title { 
+  font-size: 20px;
+}

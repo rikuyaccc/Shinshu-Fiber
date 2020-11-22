@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row my-5 border-bottom">
+    <%# ユーザ画像 %>
+    <div class="col-1 offset-3">
+      <% if @user.image.blank? %>
+        <%= image_tag 'default.jpg', class: "icon-image" %>
+      <% else %>
+        <img src=<%= @user.image %> class="icon-image" >
+      <% end %>
+    </div>
+    <%# ユーザ詳細 %>
+    <div class="col-5 mt-1 pl-5">
+      <span class="user-name"><%= @user.username %></span>
+      <%# フォローボタン %>
+      <% unless @user.id == current_user.id %>
+        <span id="follow-button_#{ @user.id }">
+          <%= render 'users/follow_button', user: @user %>
+        </span>
+      <% end %>
+      <p class="user-profile mt-2"><%= @user.profile %></p>
+      <%# フォローカウント %>
+      <td id ="following-count_#{ @user.id }">
+        <%= link_to "#{@user.active_relationships.count}フォロー", follows_user_path(@user.id) %>
+      </td>
+      <td id="follower-count_#{ user.id }"> 
+        <%= link_to "#{@user.passive_relationships.count}フォロワー", followers_user_path(@user.id) %>
+      </td>
+    </div>
+  </div>
+  <%# フォロー一覧 %>
+  <div class="row mt-5">
+    <% @users.each do |user| %>
+      <div class="col-4 offset-4 d-flex align-items-center border shadow-sm py-3">
+        <% if user.image.blank? %>
+          <%= image_tag 'default.jpg', class: 'little-icon-image' %>
+        <% else %>
+          <img src=<%= user.image %> class='little-icon-image'>
+        <% end %>
+        <%#　ゲストユーザーか判断 %>
+        <% if user.email == "guest@example.com" %>
+          <%= link_to "ゲストユーザー", user_path(user.id), class: 'ml-2 mr-auto' %>
+        <% else %>
+          <%= link_to user.username, user_path(user.id), class: 'ml-2 mr-auto' %>
+        <% end %>
+        <%# フォローボタン %>
+        <% if @user.id != current_user.id %>
+          <span id="follow-button_#{ @user.id }">
+            <%= render 'users/follow_button', user: @user %>
+          </span>
+        <% end %>
+     </div>
+    <% end %>
+  </div>
+</div>

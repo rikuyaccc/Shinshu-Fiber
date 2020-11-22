@@ -1,0 +1,6 @@
+<% if user.followed_by?(current_user) %>
+  <%= link_to 'フォロー済み', user_relationships_path(user.id), method: :delete, data: {"turbolinks" => false}, class: "unfollow-link px-3 py-1 float-right", remote: true %>
+<% else %>
+  <%= link_to 'フォロー', user_relationships_path(user.id), method: :post, data: {"turbolinks" => false}, class: "follow-link px-3 py-1 float-right", remote: true %>
+<% end %>
+  
