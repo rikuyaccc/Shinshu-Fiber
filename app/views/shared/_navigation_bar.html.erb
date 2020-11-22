@@ -1,0 +1,68 @@
+<header>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container">
+          <%= link_to "Shinshu Fiber Class", root_path, class: 'navbar-brand' %>
+          <div id="Navbar">
+            <ul class="navbar-nav mr-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item active">
+                  <%= link_to root_path, class: 'nav-link' do %>
+                    <i class="fas fa-home"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item active">
+                  <%= link_to classrooms_path, class: 'nav-link' do %>
+                    <i class="fas fa-school"></i>
+                  <% end %>
+                </li>
+                <li class="nav-item active">
+                  <%= link_to rooms_path, class: 'nav-link' do %>
+                    <i class="fas fa-envelope"></i>
+                  <% end %>
+                </li>
+                <!-- サークルアイコン-->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbar2Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-snowboarding"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
+                    <%= link_to "サークル一覧", clubs_path, class: "dropdown-item" %>
+                    <%= link_to "サークル作成", new_club_path, class: "dropdown-item" %>
+                  </div>
+                </li>
+                <!-- ユーザアイコン-->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbar1Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <% if current_user.image.blank? %>
+                      <%= image_tag 'default.jpg', class: "nav-icon-image" %>
+                    <% else %>
+                      <img src=<%= current_user.image %> class="nav-icon_image" >
+                    <% end %>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbar1Dropdown">
+                    <%= link_to "プロフィール", user_path(current_user.id), class: "dropdown-item" %>
+                    <%= link_to "ユーザー設定", edit_user_registration_path, class: "dropdown-item" %>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                  </div>
+                </li>
+                <li class="nav-item active">
+                  <%= link_to "ユーザ一覧", users_path, class: 'nav-link' %>
+                </li>
+              <% else %>
+                <li class="nav-item active">
+                  <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item active">
+                  <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, class: 'nav-link', method: :post %>
+                </li>
+                <li class="nav-item active">
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+      </div>  
+    </div>
+  </nav>
+</header>

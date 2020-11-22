@@ -1,0 +1,43 @@
+<div class="container-fluid back py-5">
+  <div class="row">
+    <div class="col-8 offset-2 text-center">
+      <p class="header-comment">
+        信州大学の授業評価サービスです<br>
+        授業に関する口コミやサークルの一覧などもみることができます
+      </p>
+      <% unless user_signed_in? %>
+        <div class="text-center mt-4">
+           <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success' %>
+        </div>
+      <% end %>
+        <p>作成者</p>
+        <%= link_to "千葉　陸矢", home_myself_path %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-3 offset-2 border rounded p-3">
+      <%= image_tag 'class_comment.png', class: 'comment-image' %>
+    </div>
+    <div class="col-5 ml-5">
+      <p class="caption mt-5">受けた授業を気軽にコメント</p>
+      <p class="detail">
+      自分が受けた授業を評価とコメントをしてみましょう。様々な授業があり
+      他の人が投稿した評価なども見ることができます
+      </p>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-5 offset-2"> 
+      <p class="caption mt-5">ユーザー同士でメッセージも</p>
+      <p class="detail">
+      授業を評価しているユーザーに対してメッセージを送ることもできます<br>
+      自分の知りたいことを聞いたり、そこから交流を増やすこともできます
+      </p>
+    </div>
+    <div class="col-3 ml-5 border rounded p-3">
+      <%= image_tag 'message', class: 'message-image' %>
+    </div>
+  </div>
+</div>
