@@ -1,0 +1,66 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.image-myself {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 0px 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+.back{
+  /* 画面いっぱいに背景画像を貼り付ける */
+  background-image: url("<%= asset_path('ph_img.jpg') %>");
+  background-position: 50% 20%;
+  background-size: cover;
+  position: relative;
+  height: 100%;
+}
+
+.back::before{
+  /* 透過した黒を上から重ねるイメージ */
+  background-color: rgba(0,0,0,0.4);
+  /* 自由に位置指定 */
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.header-comment {
+  color: white;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.comment-image {
+  width: 415px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.message-image {
+  width: 415px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.caption {
+  font-size: 23px;
+  color: #0D8894;
+  letter-spacing: 0.05em;
+}
+
+.detail {
+  letter-spacing: 0.1em;
+  line-height: 1.7em;
+}

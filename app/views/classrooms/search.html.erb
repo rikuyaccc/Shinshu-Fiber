@@ -1,0 +1,23 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <% if @classroom_or_club == "1" %> 
+    <div class="col-6 offset-3 mb-2">
+      <h1>授業検索結果</h1>
+    </div> 
+      <% @classrooms.each do |classroom| %>
+        <div class="col-6 offset-3 border shadow-sm py-2">
+          <%= link_to "#{classroom.name}/#{classroom.term}/#{classroom.week}", classroom_path(classroom.id), class: "class-info" %>
+        </div>
+    <% end %>
+    <% else %>
+    <div class="col-4 offset-4">  
+      <h2>サークル検索結果</h2>
+    </div>
+      <% @clubs.each do |club| %>
+        <div class="col-4 offset-4 border shadow-sm py-3"">
+          <%= link_to club.name, club_path(club.id) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

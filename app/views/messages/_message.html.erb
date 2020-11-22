@@ -1,0 +1,14 @@
+<div class="message mb-2 <%= 'me' if message.user == current_user %>">
+  <div class="content-container">
+    <div class="content">
+      <%= message.content %>
+    </div>
+    <div class="author">
+      <% if message.user.email == "guest@example.com" %>
+        ゲストユーザ
+      <% else %>
+        <%= message.user.username %>
+      <% end %>
+    </div>
+  </div>
+</div>

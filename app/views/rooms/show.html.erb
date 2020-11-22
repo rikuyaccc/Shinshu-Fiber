@@ -1,0 +1,26 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <%= render 'rooms/index', another_entries: @another_entries %>
+    <div class="col-4">
+      <div class="chat-room">
+        <nav class="navbar navbar-light bg-light">
+          <span class="navbar-brand" href="#">
+            <% @entries.each do |e| %>
+              <span class="ml-2"><%= e.user.username %></span>
+            <% end %>
+          </span>
+        </nav>
+        <div id="messages">
+          <% if @messages.present? %>
+            <% @messages.each do |message| %>
+              <%= render 'messages/message', message: message %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="chat-box">
+        <%= render 'messages/form', message: @message, room: @room %>
+      </div>
+    </div>
+  </div>
+</div>

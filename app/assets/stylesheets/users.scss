@@ -1,0 +1,88 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.icon-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.little-icon-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.nav-icon-image {
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.follow-link {
+  font-size: 12px;
+  color:  #0D8894;
+  border: solid 1px #0D8894;
+  border-radius: 4px;
+  &:hover {
+    background-color: #0D8894;
+    color: white;
+  }
+}
+
+.unfollow-link {
+  font-size: 12px;
+  color: #0D8894;
+  border: solid 1px #0D8894;
+  border-radius: 4px;
+  &:hover {
+    background-color: #0D8894;
+    color: white;
+  }
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-profile {
+  font-size: 14px;
+}
+
+.follow-count {
+  color: black;
+}
+
+.follower-count {
+  color: black;
+}
+
+.user-container {
+  position: relative;
+  .follow-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+  .dm-container {
+    position: absolute;
+    top: 18px;
+    right: 130px;
+  }
+}
+
+.rate-button {
+  font-size: 15px;
+  color:  #0D8894;
+  border: solid 1px #0D8894;
+  border-radius: 4px;
+  &:hover {
+    background-color: #0D8894;
+    color: white;
+  }
+}
