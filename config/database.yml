@@ -51,4 +51,4 @@ production:
   <<: *default
   database: Shinshu_Fiber_production
   username: Shinshu_Fiber
-  password: <%= ENV['SHINSHU_FIBER_DATABASE_PASSWORD'] %>
+  password: PON2murakami
