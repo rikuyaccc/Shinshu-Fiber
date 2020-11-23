@@ -14,11 +14,7 @@
         </div>
       <% end %>
       <%# ユーザ詳細 %>
-      <% if @user.email == "guest@example.com" %>
-        <p class="user-name text-center mt-3">ゲストユーザー</p>
-      <% else %>
         <p class="user-name text-center mt-3"><%= @user.username %></p>
-      <% end %>
       <%# DM機能 %>
       <div class="dm-container">
         <% unless @user.id == current_user.id %>
