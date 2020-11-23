@@ -24,6 +24,8 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :rooms, through: :entries
 
+  validates :username, presence: true
+
   #ゲストユーザーが存在しなければユーザーを作成する
   def self.guest
     find_or_create_by(email: 'guest@example.com', username: 'ゲストユーザー') do |user|
