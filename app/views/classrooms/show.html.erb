@@ -6,7 +6,6 @@
       <p><%= link_to "授業を評価", rate_classroom_path(@classroom.id), class: "btn btn-info float-right" %></p>
       <p>学期: <%= @classroom.term %></p>
       <p>時限: <%= @classroom.week %></p>
-      <p>講師: <%= @classroom.teacher %></p>
 
       <% if @reviews.present? %>
         <p class="mt-5">この授業のコメント</p>
