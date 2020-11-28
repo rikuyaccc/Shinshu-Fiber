@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+  #レビュー投稿
   def create
     @review = Review.create(params_review)
     redirect_to classroom_path(@review.classroom.id)

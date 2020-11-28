@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
+    #ユーザー新規登録時のストロングパラメーター
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    #ユーザー編集時のストロングパラメーター
     devise_parameter_sanitizer.permit(:account_update, keys: [:image, :profile])
   end
 end

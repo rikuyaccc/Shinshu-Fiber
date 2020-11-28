@@ -36,7 +36,7 @@
       </div>
       <%# DM機能 %>
       <p class="user-profile mt-2"><%= @user.profile %></p>
-      <div class="mx-auto">
+      <div class="mx-auto text-center">
         <span id ="following-count_#{ @user.id }">
         <%= link_to "#{@user.active_relationships.count}フォロー", follows_user_path(@user.id), data: {"turbolinks" => false}, class: 'follow-count' %>
         </span>
