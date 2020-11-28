@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-6 offset-3 pt-5">
+    <div class="col-md-6 offset-md-3 pt-5 col-xs-10 offset-xs-1 ">
       <h2><%= @classroom.name %></h2>
 
       <p><%= link_to "授業を評価", rate_classroom_path(@classroom.id), class: "btn btn-info float-right" %></p>
-      <p>学期: <%= @classroom.term %></p>
-      <p>時限: <%= @classroom.week %></p>
+      <p class="mt-5">学期: <%= @classroom.term %></p>
+      <p class="mt-1">時限: <%= @classroom.week %></p>
 
       <% if @reviews.present? %>
         <p class="mt-5">この授業のコメント</p>
@@ -15,17 +15,17 @@
     </div>
 
     <% @reviews.each do |review| %>
-      <div class="col-1 offset-3">
+      <div class="col-md-1 offset-md-3 col-xs-4 offset-xs-1">
         <%= link_to user_path(review.user.id) do %>
           <% if review.user.image.blank? %>
-            <%= image_tag 'default.jpg', class: "little-icon-image mt-3" %>
+            <%= image_tag 'default.jpg', class: "little-icon-image mt-md-3" %>
           <% else %>
-            <img src=<%= review.user.image %> class="little-icon-image mt-3" >
+            <img src=<%= review.user.image %> class="little-icon-image mt-md-3" >
           <% end %>
         <% end %>
-        <p><%= link_to review.user.username, user_path(review.user.id) %></p>
+        <p class="mt-2"><%= link_to review.user.username, user_path(review.user.id) %></p>
       </div>
-      <div class="col-5 balloon mb-3">
+      <div class="col-md-5 mb-md-3 col-xs-5 balloon">
         <!-- 星評価 -->
         <span id="star-rate-<%= review.id %>"></span>
         <script>
@@ -42,9 +42,9 @@
         </script>  
         <!--/星評価-->
 
-        <span class="review-title ml-3"><%= review.title %></span>
-        <p class="mt-3"><%= review.comment %></p>
-        <p class="review-create-time mt-2 float-right"><%= review.created_at %></p>
+        <span class="review-title ml-md-3"><%= review.title %></span>
+        <p class="mt-md-3"><%= review.comment %></p>
+        <p class="review-create-time mt-md-2 float-right"><%= review.created_at %></p>
       </div>
 
 
