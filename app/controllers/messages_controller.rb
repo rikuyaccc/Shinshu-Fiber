@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
   before_action :set_room, only: [:create, :edit, :update, :destroy]
   before_action :set_message, only: [:edit, :update, :destroy]
 
-  def create
+	def create
+		#Entryテーブルにログインユーザーidとroom_idが存在した場合メッセージを作成する
     if Entry.where(user_id: current_user.id, room_id: @room.id)
       @message = Message.create(message_params)
           if @message.save
