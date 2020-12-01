@@ -2,6 +2,12 @@
   <div class="row mt-5">
     <div class="col-6 offset-3">
       <h2 class="mb-4"><%= @classroom.name %></h2>
+      <hr>
+    </div>
+    <div class="col-6 offset-3 my-3">
+      <i class="fas fa-chevron-down"></i><span class="ml-2">授業を評価</span>
+    </div>
+    <div class="col-6 offset-3 bg-light p-3">
   
       <%= form_with model: @review, url: classroom_reviews_path(@classroom.id) do |f| %>
 

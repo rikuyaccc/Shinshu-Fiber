@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered">
+        <% days = ["月", "火", "水", "木", "金"] %>
+        <% hours = [ 1, 2, 3, 4, 5] %>
+        <tr><th>時間/曜日</th><th>月曜日</th><th>火曜日</th><th>水曜日</th><th>木曜日</th><th>金曜日</th></tr>
+        <% hours.each do |hour| %>
+          <tr>
+            <td><%= hour %></td>
+              <% days.each do |day| %>
+                <td><%= link_to "#{day}-#{hour}時限", search_class_classrooms_path, day: "#{day}#{hour}" %></td>
+              <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
