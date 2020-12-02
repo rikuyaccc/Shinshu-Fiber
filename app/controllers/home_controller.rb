@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def myself
   end
+
+  def terms
+  end
 end

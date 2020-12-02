@@ -8,6 +8,17 @@ body {
   -ms-overflow-style: none;
 }
 
+footer{
+  background-color: #174a5c;
+  color: white;
+  text-align: center;
+}
+
+ul.footer-menu li {
+display: inline;
+}
+
+
 a {
   &:hover, &:focus {
     text-decoration: none;
