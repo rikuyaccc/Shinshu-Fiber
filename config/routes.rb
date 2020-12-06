@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :classrooms, only: [:index, :show, :create] do
     resource :reviews, only: [:create]
     get :rate, on: :member
+    collection do
+      get :timetable
+      get :search_class
+    end
   end
 
   resources :users, only: [:index, :show] do

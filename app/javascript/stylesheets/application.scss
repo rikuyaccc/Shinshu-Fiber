@@ -8,6 +8,16 @@ body {
   -ms-overflow-style: none;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
 footer{
   background-color: #174a5c;
   color: white;

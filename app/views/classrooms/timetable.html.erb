@@ -9,7 +9,7 @@
           <tr>
             <td><%= hour %></td>
               <% days.each do |day| %>
-                <td><%= link_to "#{day}-#{hour}時限", search_class_classrooms_path, day: "#{day}#{hour}" %></td>
+                <td><%= link_to "#{day}-#{hour}時限", search_class_classrooms_path(day: "#{day}-#{hour}時限") %></td>
               <% end %>
           </tr>
         <% end %>

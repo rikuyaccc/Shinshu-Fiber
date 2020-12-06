@@ -10,6 +10,10 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.find(params[:id])
     @reviews = @classroom.reviews
   end
+
+  def search_class
+    @classrooms = Classroom.where("week LIKE(?)", "#{params[:day]}")
+  end
   
   def rate
     @classroom = Classroom.find(params[:id])
